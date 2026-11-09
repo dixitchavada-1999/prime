@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens - Prime Engineering brand palette and typography
+   ------------------------------------------------------------------ */
+@theme {
+  --color-navy: #101f33;
+  --color-navy-800: #15283f;
+  --color-navy-700: #1b3352;
+  --color-orange: #f28c28;
+  --color-orange-600: #d9771a;
+  --color-steel: #667085;
+  --color-steel-200: #e4e7ec;
+  --color-steel-100: #f2f4f7;
+  --color-dark: #111827;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(16 31 51 / 0.04), 0 8px 24px -8px rgb(16 31 51 / 0.12);
+  --shadow-card-hover: 0 2px 4px rgb(16 31 51 / 0.06), 0 20px 40px -12px rgb(16 31 51 / 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--color-orange);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility section-pad {
+  padding-block: 5rem;
+  @media (width >= 48rem) {
+    padding-block: 7rem;
+  }
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 2rem;
+    background-color: var(--color-orange);
+  }
+}
+
+@utility grid-pattern {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility grid-pattern-light {
+  background-image:
+    linear-gradient(to right, rgb(16 31 51 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(16 31 51 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
